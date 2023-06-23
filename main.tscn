@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctxr6xo85dmlx"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_go81k"]
+[ext_resource type="Script" path="res://FD_load.gd" id="2_p4foi"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_go81k")
+
+[node name="FD_load" type="FileDialog" parent="."]
+initial_position = 2
+title = "Open a File"
+size = Vector2i(392, 162)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+script = ExtResource("2_p4foi")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+
+[node name="surface" type="MeshInstance3D" parent="."]
+
+[connection signal="file_selected" from="FD_load" to="FD_load" method="_on_file_selected"]
